@@ -2337,6 +2337,11 @@ See https://biomejs.dev/linter/rules/no-redundant-default-export
 	 */
 	noRedundantDefaultExport?: NoRedundantDefaultExportConfiguration;
 	/**
+	* Disallow dependencies that are known to have better alternatives.
+See https://biomejs.dev/linter/rules/no-restricted-dependencies 
+	 */
+	noRestrictedDependencies?: NoRestrictedDependenciesConfiguration;
+	/**
 	* Disallow assignments in return statements.
 See https://biomejs.dev/linter/rules/no-return-assign 
 	 */
@@ -4471,6 +4476,9 @@ export type NoReactStringRefsConfiguration =
 export type NoRedundantDefaultExportConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoRedundantDefaultExportOptions;
+export type NoRestrictedDependenciesConfiguration =
+	| RulePlainConfiguration
+	| RuleWithNoRestrictedDependenciesOptions;
 export type NoReturnAssignConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoReturnAssignOptions;
@@ -6309,6 +6317,10 @@ export interface RuleWithNoRedundantDefaultExportOptions {
 	level: RulePlainConfiguration;
 	options?: NoRedundantDefaultExportOptions;
 }
+export interface RuleWithNoRestrictedDependenciesOptions {
+	level: RulePlainConfiguration;
+	options?: NoRestrictedDependenciesOptions;
+}
 export interface RuleWithNoReturnAssignOptions {
 	level: RulePlainConfiguration;
 	options?: NoReturnAssignOptions;
@@ -7991,6 +8003,7 @@ export interface NoReactNativeRawTextOptions {
 }
 export type NoReactStringRefsOptions = {};
 export type NoRedundantDefaultExportOptions = {};
+export type NoRestrictedDependenciesOptions = {};
 export type NoReturnAssignOptions = {};
 export interface NoRootTypeOptions {
 	/**
@@ -9183,6 +9196,7 @@ export type Category =
 	| "lint/correctness/useValidTypeof"
 	| "lint/correctness/useYield"
 	| "lint/nursery/noAmbiguousAnchorText"
+	| "lint/nursery/noRestrictedDependencies"
 	| "lint/nursery/noBaseToString"
 	| "lint/nursery/noBeforeInteractiveScriptOutsideDocument"
 	| "lint/nursery/noColorInvalidHex"
