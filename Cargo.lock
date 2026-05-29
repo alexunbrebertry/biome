@@ -1469,6 +1469,9 @@ dependencies = [
 [[package]]
 name = "biome_module_replacements"
 version = "0.5.7"
+dependencies = [
+ "phf 0.13.1",
+]
 
 [[package]]
 name = "biome_package"
