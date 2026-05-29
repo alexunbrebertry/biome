@@ -1,5 +1,15 @@
 # @biomejs/biome
 
+## 2.4.17
+
+### Patch Changes
+
+- [#9974](https://github.com/biomejs/biome/pull/9974) [`ff635a9`](https://github.com/biomejs/biome/commit/ff635a90da3567a9006ae947b6c5983d87dfbb9f) Thanks [@pkallos](https://github.com/pkallos)! - Added `ignoreMixedLogicalExpressions` to [useNullishCoalescing](https://biomejs.dev/linter/rules/use-nullish-coalescing/), partially addressing [#9232](https://github.com/biomejs/biome/issues/9232). When enabled, Biome ignores `||` and `||=` mixed with `&&` in the same expression tree.
+
+- [#10487](https://github.com/biomejs/biome/pull/10487) [`0c03ee3`](https://github.com/biomejs/biome/commit/0c03ee3deee068220175c3599e6bc3c4ed8ad247) Thanks [@Mokto](https://github.com/Mokto)! - Fixed a Svelte parser error that incorrectly required a binding variable after `{:then}` and `{:catch}`. Biome now correctly accepts `{:then}` and `{:catch}` without a binding, as well as the `{#await expr then}` and `{#await expr catch}` shorthand forms.
+
+- [#10108](https://github.com/biomejs/biome/pull/10108) [`24e51d6`](https://github.com/biomejs/biome/commit/24e51d6edebaee0ffb938bc20633d9c3403110c9) Thanks [@IxxyDev](https://github.com/IxxyDev)! - Fixed [#6611](https://github.com/biomejs/biome/issues/6611): [`noUnnecessaryConditions`](https://biomejs.dev/linter/rules/no-unnecessary-conditions/) now uses type information to detect more redundant conditions, including `?.`, `??`, `||`, `&&`, comparisons against `null`/`undefined` on non-nullish operands, and `case` clauses that can never match the `switch` value.
+
 ## 2.4.16
 
 ### Patch Changes
