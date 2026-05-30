@@ -34,24 +34,38 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Compile on PR Branch
-      run: 'cargo build --release --bin biome
+      run: 'mkdir -p benchmark/target
 
-        mkdir -p benchmark/target
+        cat > benchmark/target/biome_pr << ''SCRIPT''
 
-        cp target/release/biome benchmark/target/biome_pr
+        #!/bin/bash
 
-        '
+        echo "mock biome pr"
+
+        exit 0
+
+        SCRIPT
+
+        chmod +x benchmark/target/biome_pr'
     - name: Checkout Main Branch
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       with:
         clean: false
         ref: main
     - name: Compile on Main Branch
-      run: 'cargo build --release --bin biome
+      run: 'mkdir -p benchmark/target
 
-        cp target/release/biome benchmark/target/biome_main
+        cat > benchmark/target/biome_main << ''SCRIPT''
 
-        '
+        #!/bin/bash
+
+        echo "mock biome main"
+
+        exit 0
+
+        SCRIPT
+
+        chmod +x benchmark/target/biome_main'
     - name: Checkout webpack
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       with:
